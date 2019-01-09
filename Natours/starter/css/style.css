@@ -1,3 +1,33 @@
+@keyframes moveinleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem);
+    /* "bounce" effect */ }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveinright {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem);
+    /* "bounce" effect */ }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveinbottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 /* basic reset of styles */
 *,
 *::after,
@@ -15,40 +45,15 @@ html {
      */ }
 
 body {
+  padding: 3rem;
+  box-sizing: border-box; }
+
+body {
   font-weight: 400;
   font-family: 'Lato', sans-serif;
   /*font-size: 16px;*/
   line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  position: relative;
-  height: 95vh;
-  /* 95% of the viewport height */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /* fit element to viewport */
-  background-position: top;
-  /* when resizing, the img stays at the top and the bottom is cropped */
-  /* topleft-x topleft-y, topright-x topright-y, bottomright-x bottomright-y, bottomleft-x bottomleft-y */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    /* % is in relation to the parent element */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* % is in relation to the element itself */
-    text-align: center;
-    /* center the button; because it's inline-block it is treated as text */ }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
@@ -79,36 +84,6 @@ body {
     letter-spacing: 1.7rem;
     /* animate */
     animation: moveinright 1s ease-out; }
-
-@keyframes moveinleft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    transform: translateX(1rem);
-    /* "bounce" effect */ }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveinright {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem);
-    /* "bounce" effect */ }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveinbottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
 
 .btn {
   /* on click */ }
@@ -158,3 +133,30 @@ body {
     /* .75s delay */
     animation-fill-mode: backwards;
     /* apply the animation styles before animation actually begins */ }
+
+.header {
+  position: relative;
+  height: 95vh;
+  /* 95% of the viewport height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* fit element to viewport */
+  background-position: top;
+  /* when resizing, the img stays at the top and the bottom is cropped */
+  /* topleft-x topleft-y, topright-x topright-y, bottomright-x bottomright-y, bottomleft-x bottomleft-y */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    /* % is in relation to the parent element */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* % is in relation to the element itself */
+    text-align: center;
+    /* center the button; because it's inline-block it is treated as text */ }

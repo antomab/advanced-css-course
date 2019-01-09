@@ -1,0 +1,44 @@
+body {
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    /*font-size: 16px;*/
+    line-height: 1.7;
+    color: $color-grey-dark;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+
+    /* backface-visibility determines whether the back part of the element is
+       visible to the user while it's being transformed */
+    backface-visibility: hidden;    /* stops shaking while animation is going on */
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+        /* animate */
+        animation-name: moveinleft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;  /* how the animation progresses over time */
+
+        /*
+        animation-delay: 3s;
+        animation-iteration-count: 3;  repeat animation X times
+        */
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.7rem;
+
+        /* animate */
+        animation: moveinright 1s ease-out;
+    }
+}

@@ -1,0 +1,23 @@
+/* basic reset of styles */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* force elements to take what we set in body*/
+}
+
+html {
+    // defines what 1rem is (so we don't move it to _typography)
+    font-size: 62.5%;
+    /* we want 10px originally, but don't want to interfere with user settings.
+     Assuming browser default is 16px
+     10px / 16px = 0.625px = 62.5%
+     */
+}
+
+body {
+    padding: 3rem;
+    box-sizing: border-box;
+}

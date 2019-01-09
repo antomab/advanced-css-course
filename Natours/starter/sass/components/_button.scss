@@ -1,0 +1,64 @@
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        position: relative;
+        font-size: 1.6rem;
+
+        /* animate */
+        transition: all .2s;
+
+        /* the button is centered by it's parent element.
+           because it's inline-block it is treated as text */
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 10px 20px rgba($color-black, .2);
+
+        &::after {
+            transform: scaleX(1.5) scaleY(1.6);
+            opacity: 0; /* so it fades out */
+        }
+    }
+
+    /* on click */
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 5px 10px rgba($color-black, .2);
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+        height: 100%;   /* pseudo elements are treated as childs of the element, so 100% is relative to the btn element */
+        width: 100%;
+        border-radius: 10rem;
+
+        transition: all .4s;  /* so it animates the pseudo-after properties */
+
+        /* place element "behind" the btn element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--animated {
+        animation: moveinbottom .5s ease-out .75s;  /* .75s delay */
+        animation-fill-mode: backwards;  /* apply the animation styles before animation actually begins */
+    }
+}
