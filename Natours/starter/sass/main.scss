@@ -48,25 +48,25 @@ body {
 
     /* topleft-x topleft-y, topright-x topright-y, bottomright-x bottomright-y, bottomleft-x bottomleft-y */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__logo {
-    height: 3.5rem;
-}
+    &__logo {
+        height: 3.5rem;
+    }
 
-.header__text-box {
-    position: absolute;
-    top: 40%;   /* % is in relation to the parent element */
-    left: 50%;
-    transform: translate(-50%, -50%); /* % is in relation to the element itself */
+    &__text-box {
+        position: absolute;
+        top: 40%;   /* % is in relation to the parent element */
+        left: 50%;
+        transform: translate(-50%, -50%); /* % is in relation to the element itself */
 
-    text-align: center; /* center the button; because it's inline-block it is treated as text */
+        text-align: center; /* center the button; because it's inline-block it is treated as text */
+    }
 }
 
 .heading-primary {
@@ -77,35 +77,34 @@ body {
     /* backface-visibility determines whether the back part of the element is
        visible to the user while it's being transformed */
     backface-visibility: hidden;    /* stops shaking while animation is going on */
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+        /* animate */
+        animation-name: moveinleft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;  /* how the animation progresses over time */
+
+        /*
+        animation-delay: 3s;
+        animation-iteration-count: 3;  repeat animation X times
+        */
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.7rem;
+
+        /* animate */
+        animation: moveinright 1s ease-out;
+    }
 }
-
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-
-    /* animate */
-    animation-name: moveinleft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;  /* how the animation progresses over time */
-
-    /*
-    animation-delay: 3s;
-    animation-iteration-count: 3;  repeat animation X times
-    */
-}
-
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.7rem;
-
-    /* animate */
-    animation: moveinright 1s ease-out;
-}
-
 
 @keyframes moveinleft {
     0% {
@@ -151,65 +150,67 @@ body {
     }
 }
 
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    position: relative;
-    font-size: 1.6rem;
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        position: relative;
+        font-size: 1.6rem;
 
-    /* animate */
-    transition: all .2s;
+        /* animate */
+        transition: all .2s;
 
-    /* the button is centered by it's parent element.
-       because it's inline-block it is treated as text */
-}
+        /* the button is centered by it's parent element.
+           because it's inline-block it is treated as text */
+    }
 
-.btn:hover {
-    transform: translateY(-.3rem);
-    box-shadow: 0 10px 20px rgba($color-black, .2);
-}
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 10px 20px rgba($color-black, .2);
 
-/* on click */
-.btn:active {
-    transform: translateY(-.1rem);
-    box-shadow: 0 5px 10px rgba($color-black, .2);
-}
+        &::after {
+            transform: scaleX(1.5) scaleY(1.6);
+            opacity: 0; /* so it fades out */
+        }
+    }
 
-.btn--white {
-    background-color: $color-white;
-    color: $color-grey-dark;
-}
+    /* on click */
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 5px 10px rgba($color-black, .2);
+    }
 
-.btn::after {
-    content: '';
-    display: inline-block;
-    height: 100%;   /* pseudo elements are treated as childs of the element, so 100% is relative to the btn element */
-    width: 100%;
-    border-radius: 10rem;
+    &::after {
+        content: '';
+        display: inline-block;
+        height: 100%;   /* pseudo elements are treated as childs of the element, so 100% is relative to the btn element */
+        width: 100%;
+        border-radius: 10rem;
 
-    transition: all .4s;  /* so it animates the pseudo-after properties */
+        transition: all .4s;  /* so it animates the pseudo-after properties */
 
-    /* place element "behind" the btn element */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
+        /* place element "behind" the btn element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 
-.btn--white::after {
-    background-color: $color-white;
-}
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
 
-.btn:hover::after {
-    transform: scaleX(1.5) scaleY(1.6);
-    opacity: 0; /* so it fades out */
-}
+        &::after {
+            background-color: $color-white;
+        }
+    }
 
-.btn--animated {
-    animation: moveinbottom .5s ease-out .75s;  /* .75s delay */
-    animation-fill-mode: backwards;  /* apply the animation styles before animation actually begins */
+    &--animated {
+        animation: moveinbottom .5s ease-out .75s;  /* .75s delay */
+        animation-fill-mode: backwards;  /* apply the animation styles before animation actually begins */
+    }
 }
