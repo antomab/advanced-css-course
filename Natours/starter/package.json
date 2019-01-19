@@ -4,11 +4,14 @@
   "description": "Landing page for natours",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "serve": "live-server",
+    "watch:sass": "node-sass sass/main.scss css/style.css -w -r",
+    "start": "parallelshell \"npm run watch:sass\" \"npm run serve\""
   },
   "author": "antonia",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "parallelshell": "^3.0.2"
   }
 }
