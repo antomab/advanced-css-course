@@ -7,7 +7,7 @@
         display: inline-block;
         border-radius: 10rem;
         position: relative;
-        font-size: 1.6rem;
+        font-size: $default-font-size;
 
         /* animate */
         transition: all .2s;
@@ -60,5 +60,30 @@
     &--animated {
         animation: moveinbottom .5s ease-out .75s;  /* .75s delay */
         animation-fill-mode: backwards;  /* apply the animation styles before animation actually begins */
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        color: $color-primary;
+        font-size: $default-font-size;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
     }
 }
