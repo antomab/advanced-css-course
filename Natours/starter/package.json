@@ -12,6 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^4.11.0",
-    "parallelshell": "^3.0.2"
+    "parallelshell": "3.0.1"
   }
 }
