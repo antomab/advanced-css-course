@@ -5,3 +5,16 @@
     clear: both;
   }
 }
+
+////////////////////////////
+/// FONTS
+
+@mixin font-color-gradient ($color-start, $color-end) {
+    display: inline-block;
+
+    // clip background to remove everything but behind the text
+    // make the text transparent to show the gradient colours
+    background-image: linear-gradient(to right, $color-start, $color-end);
+    -webkit-background-clip: text;
+    color: transparent;
+}

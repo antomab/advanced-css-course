@@ -44,16 +44,10 @@ body {
 }
 
 .heading-secondary {
+    @include font-color-gradient($color-primary-light, $color-primary-dark);
     font-size: 3.5rem;
     text-transform: uppercase;
     font-weight: 700;
-    display: inline-block;
-
-    // clip background to remove everything but behind the text
-    // make the text transparent to show the gradient colours
-    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-    -webkit-background-clip: text;
-    color: transparent;
 
     letter-spacing: 2px;
     transition: all .2s;
